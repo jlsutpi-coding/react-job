@@ -1,8 +1,8 @@
 import React from "react";
 
-const Hero = ({ title, subtitle }) => {
+const Hero = ({ title = "Become a React Dev" }) => {
   console.log(title);
-  console.log(subtitle);
+
   return (
     <>
       {/*  Hero  */}
