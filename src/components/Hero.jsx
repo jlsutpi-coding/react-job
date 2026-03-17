@@ -1,8 +1,6 @@
 import React from "react";
 
 const Hero = ({ title = "Become a React Dev" }) => {
-  console.log(title);
-
   return (
     <>
       {/*  Hero  */}
