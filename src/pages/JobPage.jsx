@@ -23,7 +23,7 @@ const JobPage = () => {
       </section>
       <section className="bg-indigo-50">
         <div className="container m-auto py-10 px-6 ">
-          <div className="grid grid-cols-1 md:grid-cols-[70%_30%]  gap-6 ">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-6 ">
             <main>
               <div className="bg-white p-6 rounded-lg shadow-md text-center md:text-left">
                 <div className="text-gray-500 mb-4">{type}</div>
@@ -50,7 +50,7 @@ const JobPage = () => {
             </main>
 
             {/* <!-- Sidebar --> */}
-            <aside>
+            <aside className="">
               {/* <!-- Company Info --> */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold mb-6">Company Info</h3>
@@ -78,7 +78,7 @@ const JobPage = () => {
               <div className="bg-white p-6 rounded-lg shadow-md mt-6">
                 <h3 className="text-xl font-bold mb-6">Manage Job</h3>
                 <Link
-                  to="/add-job"
+                  to={`/jobs/edit/${id}`}
                   className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >
                   Edit Job
