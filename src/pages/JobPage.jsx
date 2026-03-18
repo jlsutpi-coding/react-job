@@ -1,29 +1,61 @@
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeft, FaMapMarkedAlt } from "react-icons/fa";
 import Spinner from "../components/Spinner";
+import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 
 const JobPage = ({ deleteJob }) => {
+  const [jobData, setJobData] = useState();
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        const res = await fetch(`/api/jobs/${id}`);
+        const data = await res.json();
+        setJobData(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchJob();
+  }, [id]);
+
   const navigate = useNavigate();
-
-  const jobData = useLoaderData();
-  console.log(deleteJob);
-
-  const { id, title, type, salary, location, description, company } = jobData;
 
   if (!jobData) {
     return <Spinner />;
   }
+  const { title, type, salary, location, description, company } = jobData;
 
-  const onDeleteJob = (id) => {
+  const onDeleteJob = async (id) => {
     const confirm = window.confirm(
       "Are you sure you want to delete this listing?",
     );
     if (!confirm) return;
-    deleteJob(id);
-    navigate("/jobs");
+    try {
+      const res = await deleteJob(id);
+      if (!res.ok) {
+        throw new Error("Delete failed");
+      }
+      navigate("/jobs", { state: { deleted: true } });
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <>
+      <button
+        onClick={async () => {
+          await fetch("/api/jobs");
+          toast.success("TEST");
+          navigate("/");
+        }}
+      >
+        Test Toast
+      </button>
       <section>
         <div className="max-w-7xl mx-auto py-10 px-6">
           <Link
@@ -110,13 +142,5 @@ const JobPage = ({ deleteJob }) => {
     </>
   );
 };
-const jobLoader = async ({ params }) => {
-  const res = await fetch(`/api/jobs/${params.id}`);
-  if (!res.ok) {
-    throw new Response("Job not Found", { status: 404 });
-  }
-  const data = await res.json();
-  return data;
-};
 
-export { JobPage as default, jobLoader };
+export default JobPage;
