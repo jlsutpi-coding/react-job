@@ -20,10 +20,8 @@ const JobListings = ({ isHome = false }) => {
       }
     };
     fetchJob();
-    console.log("Hi");
   }, [isHome]);
 
-  console.log(jobs);
   return (
     <>
       <section className="bg-blue-50 px-4 py-10">
