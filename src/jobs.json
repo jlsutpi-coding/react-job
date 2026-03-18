@@ -83,6 +83,21 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
+    },
+    {
+      "id": "c34c",
+      "title": "test",
+      "type": "Full-Time",
+      "location": "test",
+      "description": "test job",
+      "salary": "Under $50K",
+      "company": {
+        "name": "test",
+        "description": "test",
+        "contactEmail": "sutpi070@gmail.com",
+        "contactPhone": "033445533"
+      }
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
