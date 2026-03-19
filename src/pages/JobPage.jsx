@@ -1,10 +1,27 @@
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { FaArrowLeft, FaMapMarkedAlt } from "react-icons/fa";
 import Spinner from "../components/Spinner";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
   const jobData = useLoaderData();
+  const locationR = useLocation();
+
+  useEffect(() => {
+    if (locationR.state?.updated) {
+      toast.success("Job Updated successfully!");
+
+      // clear state so it won't trigger again
+      navigate(locationR.pathname, { replace: true });
+    }
+  }, [locationR.state, navigate, locationR.pathname]);
 
   if (!jobData) {
     return <Spinner />;
