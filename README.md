@@ -1,16 +1,94 @@
-# React + Vite
+# Job Showcase App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This is a job listing web application built with React. It allows users to view, add, edit, and delete job postings. The project focuses on frontend development concepts such as routing, data fetching, and UI state handling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- View all job listings
+- View detailed job information
+- Add new job posts
+- Edit existing jobs
+- Delete jobs
+- Toast notifications for user actions
+- Routing with dynamic pages
+- Data fetching using React Router loaders
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React
+- React Router
+- Tailwind CSS
+- React Toastify
+- json-server (mock backend)
+
+---
+
+## Important Note
+
+This project uses **json-server** as a mock backend for development purposes.
+
+- Data is stored locally in a JSON file
+- The app is not connected to a real backend API
+- Not intended for production deployment
+
+---
+
+## ▶ Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start mock backend
+
+```bash
+npm run server
+```
+
+### 3. Start frontend
+
+```bash
+npm run dev
+```
+
+---
+
+## Project Structure
+
+- `/pages` – Application pages (Home, Jobs, Job Detail, Edit, Add)
+- `/components` – Reusable UI components
+- `/layouts` – Layout structure
+- `/loaders` – Data fetching logic (React Router loaders)
+
+---
+
+## What I Learned
+
+- How to use React Router (including loaders)
+- Managing navigation state and side effects
+- Handling CRUD operations in frontend apps
+- Structuring a React project cleanly
+- Providing user feedback with toast notifications
+
+---
+
+## Future Improvements
+
+- Replace json-server with a real backend (Express / Prisma)
+- Add authentication system
+- Implement global state management (Redux)
+- Improve UI/UX and responsiveness
+
+---
+
+## Notes
+
+This project is part of my learning journey in frontend and full-stack development. It focuses on building a solid foundation before moving into more advanced topics like authentication and state management.
