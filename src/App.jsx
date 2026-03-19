@@ -10,7 +10,6 @@ import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
-import { toast } from "react-toastify";
 
 // Add new Job
 const addJob = async (newJob) => {
@@ -25,13 +24,6 @@ const addJob = async (newJob) => {
 // Delete Job
 const deleteJob = async (id) => {
   const res = await fetch(`/api/jobs/${id}`, { method: "DELETE" });
-  console.log(id);
-  if (res.ok) {
-    console.log(
-      "Hiiii8888888888888888888888888888888888888888888888888888888888888",
-    );
-    toast.success("job delteed successfully");
-  }
   return res;
 };
 

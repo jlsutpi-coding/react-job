@@ -10,6 +10,9 @@ const JobsPage = () => {
     if (locationR.state?.deleted) {
       toast.success("Job Deleted successfully!");
     }
+    if (locationR.state?.added) {
+      toast.success("Job Added successfully!");
+    }
   }, [locationR]);
   return (
     <section className=" bg-blue-50 px-4 py-6">

@@ -1,7 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeft, FaMapMarkedAlt } from "react-icons/fa";
 import Spinner from "../components/Spinner";
-import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 const JobPage = ({ deleteJob }) => {
@@ -47,15 +46,6 @@ const JobPage = ({ deleteJob }) => {
 
   return (
     <>
-      <button
-        onClick={async () => {
-          await fetch("/api/jobs");
-          toast.success("TEST");
-          navigate("/");
-        }}
-      >
-        Test Toast
-      </button>
       <section>
         <div className="max-w-7xl mx-auto py-10 px-6">
           <Link
