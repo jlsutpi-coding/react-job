@@ -9,7 +9,9 @@ import MainLayout from "./layouts/MainLayout";
 import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage from "./pages/JobPage";
+import { jobLoader } from "./loaders/jobLoader";
 import AddJobPage from "./pages/AddJobPage";
+import EditJobPage from "./pages/EditJobPage";
 
 // Add new Job
 const addJob = async (newJob) => {
@@ -36,9 +38,14 @@ const App = () => {
         <Route
           path="/jobs/:id"
           element={<JobPage deleteJob={deleteJob} />}
-          // loader={jobLoader}
+          loader={jobLoader}
         />
         <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob} />} />
+        <Route
+          path="/edit-job/:id"
+          element={<EditJobPage />}
+          loader={jobLoader}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Route>,
     ),
